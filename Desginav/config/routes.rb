@@ -1,5 +1,12 @@
 Desginav::Application.routes.draw do
+get "log_out" => "sessions#destroy", :as => "log_out"
+get "admin" => "sessions#new", :as => "log_in"
+get "admin" => "admin#new" , :as => "log_in"
+
+ get "admin/index"
   get "home/index"
+resources :sessions
+resources :admin
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
