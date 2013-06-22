@@ -1,7 +1,7 @@
-<h1>Admin#index</h1>
+<h1>Admin#show</h1>
 <div id="user_nav">
-  <% if current_admin %>
-    Logged in as <%= current_admin.email %>.
+  <% if current_admin = @admin.id%>
+    Logged in as <%= @admin.email %>.
     <%= link_to "Log out", log_out_path %>
   <% else %>
     <%= link_to "log in", log_in_path %>

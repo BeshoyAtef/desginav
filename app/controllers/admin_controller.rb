@@ -7,4 +7,5 @@ class AdminController < ApplicationController
    	@admin = Admin.new
    end 
 
+
 end

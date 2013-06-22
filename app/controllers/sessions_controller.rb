@@ -6,10 +6,12 @@ def create
   @admin = Admin.authenticate(params[:email], params[:password])
   if @admin
     session[:user_id] = @admin.id
-    redirect_to @admin, :notice => "Logged in!"
+      redirect_to(:controller=>'admin',:action=>'show' ,:id=> @admin.id) 
+       flash[:success] = "welcome" 
   else
-    flash.now.alert = "Invalid email or password"
-    render "new"
+     flash[:error] = "Invalid email or password"
+      render 'new'
+    
   end
 end
 
