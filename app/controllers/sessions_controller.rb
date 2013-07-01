@@ -10,8 +10,7 @@ def create
        flash[:success] = "welcome" 
   else
      flash[:error] = "Invalid email or password"
-      render 'new'
-    
+      render 'new'  
   end
 end
 
