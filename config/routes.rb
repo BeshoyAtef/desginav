@@ -2,11 +2,12 @@ Desginav::Application.routes.draw do
 get "log_out" => "sessions#destroy", :as => "log_out"
 get "admin" => "sessions#new", :as => "log_in"
 get "admin" => "admin#new" , :as => "log_in"
-
  get "admin/index"
   get "home/index"
+  get "projects/new"
 resources :sessions
 resources :admin
+resources :projects
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -63,5 +64,5 @@ resources :admin
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+   match ':controller(/:action(/:id))(.:format)'
 end

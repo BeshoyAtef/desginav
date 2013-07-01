@@ -3,6 +3,7 @@
   <% if current_admin = @admin.id%>
     Logged in as <%= @admin.email %>.
     <%= link_to "Log out", log_out_path %>
+    <%= link_to 'New project', new_project_path %>
   <% else %>
     <%= link_to "log in", log_in_path %>
   <% end %>
