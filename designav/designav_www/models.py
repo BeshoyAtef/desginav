@@ -8,7 +8,7 @@ import datetime
 class Project(models.Model):
 	title = models.CharField(max_length=100)
 	project_type = models.CharField(max_length=100)
-	image = models.ImageField()
+	image = models.ImageField(upload_to = 'img')
 
 class Member(models.Model):
 	name = models.CharField(max_length=100)
@@ -17,11 +17,11 @@ class Member(models.Model):
 
 class Press(models.Model):
 	name = models.CharField(max_length=100)
-	image = models.ImageField()
+	image = models.ImageField(upload_to = 'img')
 
 class News(models.Model):
 	title = models.CharField(max_length=50)
-	image = models.ImageField()
+	image = models.ImageField(upload_to = 'img')
 	text = models.CharField(max_length=1500)
 	date = models.DateTimeField(default=datetime.datetime.now())
 
