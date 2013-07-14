@@ -1,0 +1,67 @@
+{% load staticfiles %}
+{% block headers %}
+<script type="text/javascript">
+
+function openProject(id){
+    alert(id);
+    $.ajax({
+    url: "/getProject/",
+    type: "POST",
+    data: {
+        "project_id" : id,
+    }, 
+    success: function(result) {
+     
+    }
+});
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<h1>Hello</h1>
+
+<button><a href="../getProjects">Projects</a></button>
+<button><a href="../getTeamMembers">Team Members</a></button>
+<button><a href="../getNews">News</a></button>
+
+<div class = "projects">
+    {% for project in list_of_projects %}
+        <!-- <button onclick = "openProject({{project.id}});">{{ project.title }}</button> -->
+        <div style = "display:inline; border: 1px solid; padding: 2px"> 
+            Title:{{ project.title }}
+            Type: {{ project.project_type }}
+            Image: {{ project.image }}
+        </div>
+    {% endfor %}
+</div>
+
+<div class = "members">
+    {% for member in list_of_members %}
+        <div style = "display:inline; border: 1px solid; padding: 2px"> 
+            Name:{{ member.name }}
+            Job Description: {{ member.job_description }}
+            email: {{ member.email }}
+        </div>
+    {% endfor %}
+</div>
+
+<div class = "news">
+    {% for news in list_of_news %}
+        <div style = "display:inline; border: 1px solid; padding: 2px"> 
+            Title:{{ news.title }}
+            Date: {{ news.date }}
+            Text: {{ news.text }}
+            Image: {{ news.image }}
+        </div>
+    {% endfor %}
+</div>
+
+<div class = "project">
+    {% for project in project_info %}
+        <h1> {{ project.title }} </h1>
+        <h3> {{ project.type }} </h3>
+    {% endfor %}
+</div>
+{% endblock %}
